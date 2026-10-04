@@ -111,6 +111,7 @@ function Index() {
           id="agora-hero-video"
           className="absolute inset-0 h-full w-full object-cover"
           src={heroVideo.url}
+          poster={chronosImage}
           autoPlay
           muted
           loop
