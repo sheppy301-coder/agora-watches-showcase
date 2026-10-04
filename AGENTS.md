@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep Agora Watches as a frontend-only fictional storefront; use local static catalog data so the experience remains realistic without a backend.
