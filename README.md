@@ -1,14 +1,16 @@
-# Welcome to your Lovable project
+# Agora Watches Showcase
+
+make a website for a watch store its call agora watches the name make it premius look okay js teh frontend no nee for  backend like add as many ics u can make the website looks its real but its liek js fill it out with fake detauls  btu make it real  n then also add custm favicon n then make the website so real like  add cool animantion n smootth trasntion in aso in the home page in te backrodund like inte bakrodun of the firts ttile right play a vedio liek of a premiym wath
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/e05a9a83-e38f-44c3-be23-606128a1b1c8).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +22,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
