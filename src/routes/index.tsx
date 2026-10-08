@@ -20,11 +20,17 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-import atelierImage from "@/assets/atelier.jpg";
 import heroVideo from "@/assets/agora-hero.mp4.asset.json";
-import asterImage from "@/assets/watch-aster.jpg";
-import chronosImage from "@/assets/watch-chronos.jpg";
-import meridianImage from "@/assets/watch-meridian.jpg";
+import watch01 from "@/assets/watch-01.webp.asset.json";
+import watch02 from "@/assets/watch-02.webp.asset.json";
+import watch03 from "@/assets/watch-03.webp.asset.json";
+import watch04 from "@/assets/watch-04.webp.asset.json";
+import watch05 from "@/assets/watch-05.webp.asset.json";
+import watch06 from "@/assets/watch-06.webp.asset.json";
+import watch07 from "@/assets/watch-07.webp.asset.json";
+import watch08 from "@/assets/watch-08.webp.asset.json";
+import watch09 from "@/assets/watch-09.webp.asset.json";
+import watchmakerImage from "@/assets/watchmaker.webp.asset.json";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -62,26 +68,74 @@ const products = [
   {
     name: "Aster No. 1",
     line: "The Essential",
-    detail: "38 mm · Hand-wound · Steel",
+    detail: "38 mm · Hand-wound · Calibre AG-01",
     price: "19,800 SEK",
-    image: asterImage,
+    image: watch01.url,
     note: "New",
   },
   {
     name: "Meridian 40",
     line: "The Integrated",
-    detail: "40 mm · Automatic · Steel",
+    detail: "40 mm · Automatic · 72h reserve",
     price: "28,500 SEK",
-    image: meridianImage,
+    image: watch02.url,
     note: "Bestseller",
   },
   {
     name: "Chronos 41",
     line: "The Chronograph",
-    detail: "41 mm · Automatic · Steel",
+    detail: "41 mm · Automatic chronograph · 10 ATM",
     price: "34,900 SEK",
-    image: chronosImage,
+    image: watch03.url,
     note: "Limited 250",
+  },
+  {
+    name: "Atelier Squelette",
+    line: "The Openworked",
+    detail: "39 mm · Hand-wound · Sapphire back",
+    price: "31,500 SEK",
+    image: watch04.url,
+    note: "Atelier edition",
+  },
+  {
+    name: "Luna Perpetual",
+    line: "The Calendar",
+    detail: "40 mm · Automatic · Moon phase",
+    price: "42,000 SEK",
+    image: watch05.url,
+    note: "New",
+  },
+  {
+    name: "Nocturne C.2",
+    line: "The Sport Classic",
+    detail: "42 mm · Automatic · Ceramic bezel",
+    price: "36,800 SEK",
+    image: watch06.url,
+    note: "Online exclusive",
+  },
+  {
+    name: "Équinoxe 39",
+    line: "The Traveller",
+    detail: "39 mm · Automatic GMT · Steel",
+    price: "29,900 SEK",
+    image: watch07.url,
+    note: "Boutique edition",
+  },
+  {
+    name: "Horizon Bleu",
+    line: "The Minimalist",
+    detail: "38 mm · Automatic · Sunray dial",
+    price: "23,700 SEK",
+    image: watch08.url,
+    note: "Available now",
+  },
+  {
+    name: "Regatta 42",
+    line: "The Diver",
+    detail: "42 mm · Automatic · 30 ATM",
+    price: "38,500 SEK",
+    image: watch09.url,
+    note: "Limited 150",
   },
 ];
 
@@ -111,7 +165,7 @@ function Index() {
           id="agora-hero-video"
           className="absolute inset-0 h-full w-full object-cover"
           src={heroVideo.url}
-          poster={chronosImage}
+          poster={watch06.url}
           autoPlay
           muted
           loop
@@ -218,7 +272,7 @@ function Index() {
           <div className="flex items-end justify-between border-b border-border pb-6">
             <div>
               <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Current collection</p>
-              <h2 className="mt-3 font-display text-5xl font-normal sm:text-7xl">Three expressions of time.</h2>
+               <h2 className="mt-3 font-display text-5xl font-normal sm:text-7xl">Nine expressions of time.</h2>
             </div>
             <div className="hidden items-center gap-2 sm:flex">
               <Button variant="luxury-ghost" size="icon" aria-label="Previous watch"><ChevronLeft /></Button>
@@ -264,7 +318,7 @@ function Index() {
       <section id="atelier" className="bg-ink text-primary-foreground">
         <div className="grid min-h-[720px] lg:grid-cols-2">
           <div className="relative min-h-[480px] overflow-hidden">
-            <img src={atelierImage} alt="Agora watchmaker assembling a mechanical movement" width={1600} height={1072} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1500ms] hover:scale-[1.02]" />
+             <img src={watchmakerImage.url} alt="Watchmaker inspecting a mechanical movement at the workbench" width={1800} height={1200} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1500ms] hover:scale-[1.02]" />
             <div className="absolute inset-0 bg-video-scrim opacity-30" />
             <p className="absolute bottom-7 left-7 text-[10px] uppercase tracking-[0.24em] text-primary-foreground/65">Atelier 04 · La Chaux-de-Fonds</p>
           </div>
