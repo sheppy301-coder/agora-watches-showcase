@@ -10,33 +10,79 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CollectionsRouteImport } from './routes/collections'
+import { Route as WatchesRouteImport } from './routes/watches'
+import { Route as CollectionsSlugRouteImport } from './routes/collections.$slug'
+import { Route as WatchesSlugRouteImport } from './routes/watches.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CollectionsRoute = CollectionsRouteImport.update({
+  id: '/collections',
+  path: '/collections',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WatchesRoute = WatchesRouteImport.update({
+  id: '/watches',
+  path: '/watches',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectionsSlugRoute = CollectionsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CollectionsRoute,
+} as any)
+const WatchesSlugRoute = WatchesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => WatchesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/collections': typeof CollectionsRouteWithChildren
+  '/watches': typeof WatchesRouteWithChildren
+  '/collections/$slug': typeof CollectionsSlugRoute
+  '/watches/$slug': typeof WatchesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/collections': typeof CollectionsRouteWithChildren
+  '/watches': typeof WatchesRouteWithChildren
+  '/collections/$slug': typeof CollectionsSlugRoute
+  '/watches/$slug': typeof WatchesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/collections': typeof CollectionsRouteWithChildren
+  '/watches': typeof WatchesRouteWithChildren
+  '/collections/$slug': typeof CollectionsSlugRoute
+  '/watches/$slug': typeof WatchesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/collections' | '/watches' | '/collections/$slug' | '/watches/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    '/' | '/collections' | '/watches' | '/collections/$slug' | '/watches/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/collections'
+    | '/watches'
+    | '/collections/$slug'
+    | '/watches/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CollectionsRoute: typeof CollectionsRouteWithChildren
+  WatchesRoute: typeof WatchesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +94,64 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/collections': {
+      id: '/collections'
+      path: '/collections'
+      fullPath: '/collections'
+      preLoaderRoute: typeof CollectionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/watches': {
+      id: '/watches'
+      path: '/watches'
+      fullPath: '/watches'
+      preLoaderRoute: typeof WatchesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collections/$slug': {
+      id: '/collections/$slug'
+      path: '/$slug'
+      fullPath: '/collections/$slug'
+      preLoaderRoute: typeof CollectionsSlugRouteImport
+      parentRoute: typeof CollectionsRoute
+    }
+    '/watches/$slug': {
+      id: '/watches/$slug'
+      path: '/$slug'
+      fullPath: '/watches/$slug'
+      preLoaderRoute: typeof WatchesSlugRouteImport
+      parentRoute: typeof WatchesRoute
+    }
   }
 }
 
+interface CollectionsRouteChildren {
+  CollectionsSlugRoute: typeof CollectionsSlugRoute
+}
+
+const CollectionsRouteChildren: CollectionsRouteChildren = {
+  CollectionsSlugRoute: CollectionsSlugRoute,
+}
+
+const CollectionsRouteWithChildren = CollectionsRoute._addFileChildren(
+  CollectionsRouteChildren,
+)
+
+interface WatchesRouteChildren {
+  WatchesSlugRoute: typeof WatchesSlugRoute
+}
+
+const WatchesRouteChildren: WatchesRouteChildren = {
+  WatchesSlugRoute: WatchesSlugRoute,
+}
+
+const WatchesRouteWithChildren =
+  WatchesRoute._addFileChildren(WatchesRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CollectionsRoute: CollectionsRouteWithChildren,
+  WatchesRoute: WatchesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
