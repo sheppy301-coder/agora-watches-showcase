@@ -10,9 +10,14 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as CollectionsRouteImport } from './routes/collections'
-import { Route as WatchesRouteImport } from './routes/watches'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CraftRouteImport } from './routes/craft'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as CollectionsIndexRouteImport } from './routes/collections.index'
 import { Route as CollectionsSlugRouteImport } from './routes/collections.$slug'
+import { Route as JournalIndexRouteImport } from './routes/journal.index'
+import { Route as JournalSlugRouteImport } from './routes/journal.$slug'
+import { Route as WatchesIndexRouteImport } from './routes/watches.index'
 import { Route as WatchesSlugRouteImport } from './routes/watches.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -20,69 +25,139 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CollectionsRoute = CollectionsRouteImport.update({
-  id: '/collections',
-  path: '/collections',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WatchesRoute = WatchesRouteImport.update({
-  id: '/watches',
-  path: '/watches',
+const CraftRoute = CraftRouteImport.update({
+  id: '/craft',
+  path: '/craft',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectionsIndexRoute = CollectionsIndexRouteImport.update({
+  id: '/collections/',
+  path: '/collections/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CollectionsSlugRoute = CollectionsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => CollectionsRoute,
+  id: '/collections/$slug',
+  path: '/collections/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JournalIndexRoute = JournalIndexRouteImport.update({
+  id: '/journal/',
+  path: '/journal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JournalSlugRoute = JournalSlugRouteImport.update({
+  id: '/journal/$slug',
+  path: '/journal/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WatchesIndexRoute = WatchesIndexRouteImport.update({
+  id: '/watches/',
+  path: '/watches/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const WatchesSlugRoute = WatchesSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => WatchesRoute,
+  id: '/watches/$slug',
+  path: '/watches/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/collections': typeof CollectionsRouteWithChildren
-  '/watches': typeof WatchesRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/craft': typeof CraftRoute
+  '/services': typeof ServicesRoute
   '/collections/$slug': typeof CollectionsSlugRoute
+  '/journal/$slug': typeof JournalSlugRoute
   '/watches/$slug': typeof WatchesSlugRoute
+  '/collections/': typeof CollectionsIndexRoute
+  '/journal/': typeof JournalIndexRoute
+  '/watches/': typeof WatchesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/collections': typeof CollectionsRouteWithChildren
-  '/watches': typeof WatchesRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/craft': typeof CraftRoute
+  '/services': typeof ServicesRoute
   '/collections/$slug': typeof CollectionsSlugRoute
+  '/journal/$slug': typeof JournalSlugRoute
   '/watches/$slug': typeof WatchesSlugRoute
+  '/collections': typeof CollectionsIndexRoute
+  '/journal': typeof JournalIndexRoute
+  '/watches': typeof WatchesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/collections': typeof CollectionsRouteWithChildren
-  '/watches': typeof WatchesRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/craft': typeof CraftRoute
+  '/services': typeof ServicesRoute
   '/collections/$slug': typeof CollectionsSlugRoute
+  '/journal/$slug': typeof JournalSlugRoute
   '/watches/$slug': typeof WatchesSlugRoute
+  '/collections/': typeof CollectionsIndexRoute
+  '/journal/': typeof JournalIndexRoute
+  '/watches/': typeof WatchesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/collections' | '/watches' | '/collections/$slug' | '/watches/$slug'
+    | '/'
+    | '/contact'
+    | '/craft'
+    | '/services'
+    | '/collections/$slug'
+    | '/journal/$slug'
+    | '/watches/$slug'
+    | '/collections/'
+    | '/journal/'
+    | '/watches/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/collections' | '/watches' | '/collections/$slug' | '/watches/$slug'
+    | '/'
+    | '/contact'
+    | '/craft'
+    | '/services'
+    | '/collections/$slug'
+    | '/journal/$slug'
+    | '/watches/$slug'
+    | '/collections'
+    | '/journal'
+    | '/watches'
   id:
     | '__root__'
     | '/'
-    | '/collections'
-    | '/watches'
+    | '/contact'
+    | '/craft'
+    | '/services'
     | '/collections/$slug'
+    | '/journal/$slug'
     | '/watches/$slug'
+    | '/collections/'
+    | '/journal/'
+    | '/watches/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  CollectionsRoute: typeof CollectionsRouteWithChildren
-  WatchesRoute: typeof WatchesRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  CraftRoute: typeof CraftRoute
+  ServicesRoute: typeof ServicesRoute
+  CollectionsSlugRoute: typeof CollectionsSlugRoute
+  JournalSlugRoute: typeof JournalSlugRoute
+  WatchesSlugRoute: typeof WatchesSlugRoute
+  CollectionsIndexRoute: typeof CollectionsIndexRoute
+  JournalIndexRoute: typeof JournalIndexRoute
+  WatchesIndexRoute: typeof WatchesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -94,64 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/collections': {
-      id: '/collections'
-      path: '/collections'
-      fullPath: '/collections'
-      preLoaderRoute: typeof CollectionsRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/watches': {
-      id: '/watches'
-      path: '/watches'
-      fullPath: '/watches'
-      preLoaderRoute: typeof WatchesRouteImport
+    '/craft': {
+      id: '/craft'
+      path: '/craft'
+      fullPath: '/craft'
+      preLoaderRoute: typeof CraftRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collections/': {
+      id: '/collections/'
+      path: '/collections'
+      fullPath: '/collections/'
+      preLoaderRoute: typeof CollectionsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/collections/$slug': {
       id: '/collections/$slug'
-      path: '/$slug'
+      path: '/collections/$slug'
       fullPath: '/collections/$slug'
       preLoaderRoute: typeof CollectionsSlugRouteImport
-      parentRoute: typeof CollectionsRoute
+      parentRoute: typeof rootRouteImport
+    }
+    '/journal/': {
+      id: '/journal/'
+      path: '/journal'
+      fullPath: '/journal/'
+      preLoaderRoute: typeof JournalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/journal/$slug': {
+      id: '/journal/$slug'
+      path: '/journal/$slug'
+      fullPath: '/journal/$slug'
+      preLoaderRoute: typeof JournalSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/watches/': {
+      id: '/watches/'
+      path: '/watches'
+      fullPath: '/watches/'
+      preLoaderRoute: typeof WatchesIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/watches/$slug': {
       id: '/watches/$slug'
-      path: '/$slug'
+      path: '/watches/$slug'
       fullPath: '/watches/$slug'
       preLoaderRoute: typeof WatchesSlugRouteImport
-      parentRoute: typeof WatchesRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface CollectionsRouteChildren {
-  CollectionsSlugRoute: typeof CollectionsSlugRoute
-}
-
-const CollectionsRouteChildren: CollectionsRouteChildren = {
-  CollectionsSlugRoute: CollectionsSlugRoute,
-}
-
-const CollectionsRouteWithChildren = CollectionsRoute._addFileChildren(
-  CollectionsRouteChildren,
-)
-
-interface WatchesRouteChildren {
-  WatchesSlugRoute: typeof WatchesSlugRoute
-}
-
-const WatchesRouteChildren: WatchesRouteChildren = {
-  WatchesSlugRoute: WatchesSlugRoute,
-}
-
-const WatchesRouteWithChildren =
-  WatchesRoute._addFileChildren(WatchesRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  CollectionsRoute: CollectionsRouteWithChildren,
-  WatchesRoute: WatchesRouteWithChildren,
+  ContactRoute: ContactRoute,
+  CraftRoute: CraftRoute,
+  ServicesRoute: ServicesRoute,
+  CollectionsSlugRoute: CollectionsSlugRoute,
+  JournalSlugRoute: JournalSlugRoute,
+  WatchesSlugRoute: WatchesSlugRoute,
+  CollectionsIndexRoute: CollectionsIndexRoute,
+  JournalIndexRoute: JournalIndexRoute,
+  WatchesIndexRoute: WatchesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
