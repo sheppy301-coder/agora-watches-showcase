@@ -92,8 +92,13 @@ export const collections = [
   { slug: "complications", name: "Complications", subtitle: "Beyond the hour.", description: "Chronographs, calendars, and a second time zone. Mechanical ingenuity made beautifully legible.", image: watch05.url },
   { slug: "atelier", name: "Atelier Editions", subtitle: "A closer look.", description: "Openworked movements and small-series expressions for those who appreciate what lies beneath the dial.", image: watch04.url },
   { slug: "ocean", name: "Ocean & Adventure", subtitle: "An open horizon.", description: "Confident silhouettes, rotating bezels, and watches inspired by life beyond the shoreline.", image: coast.url },
+  { slug: "dress", name: "Evening & Dress", subtitle: "Quiet elegance.", description: "Slim cases, refined dials, and leather straps made for the moments that matter most.", image: watch01.url },
+  { slug: "travel", name: "Travel & GMT", subtitle: "Two places at once.", description: "Second time zones and legible dials for those who live between cities.", image: watch07.url },
+  { slug: "night", name: "Nocturne", subtitle: "After dark.", description: "Deep black dials, ceramic details, and luminous hands that glow long after sunset.", image: watch06.url },
+  { slug: "blue", name: "Bleu Edition", subtitle: "The colour of depth.", description: "Sunray and lacquered blue dials, from the soft hue of morning to the deep ink of the sea.", image: watch08.url },
+  { slug: "racing", name: "Racing Heritage", subtitle: "Measured in tenths.", description: "Chronographs and tachymeter scales inspired by the golden age of motorsport.", image: watch03.url },
 ];
-const memberships = ["essentials", "sport", "complications", "atelier", "complications", "sport", "complications", "essentials", "ocean"];
+const memberships = ["dress", "sport", "racing", "atelier", "complications", "night", "travel", "blue", "ocean"];
 const slugs = ["aster-no-1", "meridian-40", "chronos-41", "atelier-squelette", "luna-perpetual", "nocturne-c2", "equinoxe-39", "horizon-bleu", "regatta-42"];
 export const products = originalProducts.map((product, index) => ({ ...product, slug: slugs[index] ?? `timepiece-${index + 1}`, collection: memberships[index] ?? "essentials", priceValue: Number(product.price.replace(/[^0-9]/g, "")), reference: `AG-${String(index + 1).padStart(2, "0")}` }));
 export type Product = (typeof products)[number];
