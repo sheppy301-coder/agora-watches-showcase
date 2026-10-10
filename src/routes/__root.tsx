@@ -10,6 +10,8 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
+import { StoreProvider } from "@/components/store/store-context";
+import { StoreHeader, StoreFooter } from "@/components/store/store-shell";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -123,8 +125,11 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <StoreProvider>
+        <StoreHeader />
+        <Outlet />
+        <StoreFooter />
+      </StoreProvider>
       <Toaster position="bottom-right" />
     </QueryClientProvider>
   );
