@@ -7,6 +7,8 @@ import watch06 from "@/assets/watch-06.webp.asset.json";
 import watch07 from "@/assets/watch-07.webp.asset.json";
 import watch08 from "@/assets/watch-08.webp.asset.json";
 import watch09 from "@/assets/watch-09.webp.asset.json";
+import classic from "@/assets/collection-classic.webp.asset.json";
+import coast from "@/assets/collection-coast.webp.asset.json";
 
 
 const originalProducts = [
@@ -85,11 +87,11 @@ const originalProducts = [
 ];
 
 export const collections = [
-  { slug: "essentials", name: "The Essentials", subtitle: "Less, considered.", description: "Quiet dials, balanced proportions, and the pleasure of a mechanical watch worn every day.", image: watch01.url },
+  { slug: "essentials", name: "The Essentials", subtitle: "Less, considered.", description: "Quiet dials, balanced proportions, and the pleasure of a mechanical watch worn every day.", image: classic.url },
   { slug: "sport", name: "Sport & Steel", subtitle: "Built to move.", description: "Integrated bracelets, purposeful cases, and a presence that carries from the city to the coast.", image: watch02.url },
   { slug: "complications", name: "Complications", subtitle: "Beyond the hour.", description: "Chronographs, calendars, and a second time zone. Mechanical ingenuity made beautifully legible.", image: watch05.url },
   { slug: "atelier", name: "Atelier Editions", subtitle: "A closer look.", description: "Openworked movements and small-series expressions for those who appreciate what lies beneath the dial.", image: watch04.url },
-  { slug: "ocean", name: "Ocean & Adventure", subtitle: "An open horizon.", description: "Confident silhouettes, rotating bezels, and watches inspired by life beyond the shoreline.", image: watch09.url },
+  { slug: "ocean", name: "Ocean & Adventure", subtitle: "An open horizon.", description: "Confident silhouettes, rotating bezels, and watches inspired by life beyond the shoreline.", image: coast.url },
 ];
 const memberships = ["essentials", "sport", "complications", "atelier", "complications", "sport", "complications", "essentials", "ocean"];
 const slugs = ["aster-no-1", "meridian-40", "chronos-41", "atelier-squelette", "luna-perpetual", "nocturne-c2", "equinoxe-39", "horizon-bleu", "regatta-42"];
