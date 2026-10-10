@@ -98,9 +98,9 @@ export const collections = [
   { slug: "blue", name: "Bleu Edition", subtitle: "The colour of depth.", description: "Sunray and lacquered blue dials, from the soft hue of morning to the deep ink of the sea.", image: watch08.url },
   { slug: "racing", name: "Racing Heritage", subtitle: "Measured in tenths.", description: "Chronographs and tachymeter scales inspired by the golden age of motorsport.", image: watch03.url },
 ];
-const memberships = ["dress", "sport", "racing", "atelier", "complications", "night", "travel", "blue", "ocean"];
+const memberships = [["essentials","dress"], ["sport","essentials"], ["racing","complications","sport"], ["atelier","dress"], ["complications","dress","night"], ["night","sport"], ["travel","complications"], ["blue","essentials"], ["ocean","blue","sport"]];
 const slugs = ["aster-no-1", "meridian-40", "chronos-41", "atelier-squelette", "luna-perpetual", "nocturne-c2", "equinoxe-39", "horizon-bleu", "regatta-42"];
-export const products = originalProducts.map((product, index) => ({ ...product, slug: slugs[index] ?? `timepiece-${index + 1}`, collection: memberships[index] ?? "essentials", priceValue: Number(product.price.replace(/[^0-9]/g, "")), reference: `AG-${String(index + 1).padStart(2, "0")}` }));
+export const products = originalProducts.map((product, index) => ({ ...product, slug: slugs[index] ?? `timepiece-${index + 1}`, collection: memberships[index]?.[0] ?? "essentials", collections: memberships[index] ?? ["essentials"], priceValue: Number(product.price.replace(/[^0-9]/g, "")), reference: `AG-${String(index + 1).padStart(2, "0")}` }));
 export type Product = (typeof products)[number];
 export const formatPrice = (value: number) => `${value.toLocaleString("en-US")} SEK`;
 export const pageHead = (title: string, description: string) => ({ meta: [{ title: `${title} — Agora Watches` }, { name: "description", content: description }, { property: "og:title", content: `${title} — Agora Watches` }, { property: "og:description", content: description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] });
