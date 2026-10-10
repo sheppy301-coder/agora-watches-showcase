@@ -93,7 +93,7 @@ export const collections = [
 ];
 const memberships = ["essentials", "sport", "complications", "atelier", "complications", "sport", "complications", "essentials", "ocean"];
 const slugs = ["aster-no-1", "meridian-40", "chronos-41", "atelier-squelette", "luna-perpetual", "nocturne-c2", "equinoxe-39", "horizon-bleu", "regatta-42"];
-export const products = originalProducts.map((product, index) => ({ ...product, slug: slugs[index], collection: memberships[index], priceValue: Number(product.price.replace(/[^0-9]/g, "")), reference: `AG-${String(index + 1).padStart(2, "0")}` }));
+export const products = originalProducts.map((product, index) => ({ ...product, slug: slugs[index] ?? `timepiece-${index + 1}`, collection: memberships[index] ?? "essentials", priceValue: Number(product.price.replace(/[^0-9]/g, "")), reference: `AG-${String(index + 1).padStart(2, "0")}` }));
 export type Product = (typeof products)[number];
 export const formatPrice = (value: number) => `${value.toLocaleString("en-US")} SEK`;
 export const pageHead = (title: string, description: string) => ({ meta: [{ title: `${title} — Agora Watches` }, { name: "description", content: description }, { property: "og:title", content: `${title} — Agora Watches` }, { property: "og:description", content: description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] });
