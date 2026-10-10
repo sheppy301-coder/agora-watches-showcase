@@ -10,3 +10,6 @@
 <!-- LOVABLE:END -->
 
 - Keep Agora Watches as a frontend-only fictional storefront; use local static catalog data so the experience remains realistic without a backend.
+- Keep catalog and editorial data in browser-safe shared modules so all pages use consistent local content.
+- Keep selection and favourites in a shared in-memory provider around the root navigation and Outlet so client navigation preserves browsing state without a backend.
+- Use index leaves for collection, watch, and journal listings and sibling dynamic routes for details so each page renders independently.
